@@ -6,6 +6,7 @@ html{
   margin: 0px;
   padding: 0px;
   height: 100vh;
+  user-select: none;
 }
 body{
   margin: 0px;
@@ -14,6 +15,7 @@ body{
   width: 100vw;
   color: white;
   font-family:Inter-Regular ;
+  overflow: hidden;
 }
 .defaultBorder{
   border: 1px solid white;
@@ -38,6 +40,7 @@ body{
   display: grid;
   grid-template-rows: 80px auto 100px;
   overflow: hidden;
+  height: 100vh;
 }
 .Title{
   font-weight: bolder;
@@ -81,31 +84,50 @@ h6{
   padding: 0;
   width: 100px;
 }
-div.card{
+.card-wrappers > div.card{
   position: relative;
   width: 150px;
   aspect-ratio: 1/1;
   padding: 10px;
   border-radius: 3px;
+  background: rgb(57 83 239 / 12%);
 }
-div.card:hover{
-  background-color: rgba(255, 255, 255, 0.084);
+.card-wrappers > div.card:hover{
+  background-color: rgb(2, 1, 1);
 }
-.tabs,.musicgrid{
+.tabs,.content{
   border-bottom: 1px solid rgb(33, 44, 64);
     margin-left: 20px;
     margin-right: 20px;
     position: relative;
 }
-.musicgrid{
-  padding: 30px;
+.content{
+  overflow: hidden;
 }
-
+.musicgrid{
+  position: relative;
+  padding: 30px; 
+  overflow-y: scroll;
+  height: 90%;
+    box-sizing: border-box;
+}
+.musicgrid::-webkit-scrollbar {
+  display: none;
+}
+.card-wrappers{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 170px);
+  grid-gap: 20px;
+  justify-content: center;
+}
 img{
     position: relative;
     width: 150px;
     aspect-ratio: 1/1;
     object-fit: cover;
+}
+.imagecard > img{
+  border-radius: 5px;
 }
 div.songinfo{
   max-width: 150px;
@@ -115,4 +137,45 @@ div.songinfo{
 }
 div.songAuthor{
   font-size:12px;
+}
+.tab-title{
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+}
+.content > div.tab-title{
+  transform: translate(10px, 24px);
+}
+.tabs > div.tab-title{
+  transform: translate(10px, 15px);
+}
+.tabs > #Searchbar{
+  width: 400px;
+  background-color: #0f172a;
+  color: white;
+  font-weight:600;
+  padding: 8px;
+  border: 3px solid white;
+  border-radius: 6px;
+  font-family:Inter-Regular;
+  position: relative;
+  top: 25%;
+  left: 60%;
+}
+.tabs > #Searchbar::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  font-family:Inter-Regular;
+}
+input#Searchbar:focus, textarea#Searchbar:focus, select#Searchbar:focus{
+  outline: none;
+}
+div.straw-hats-joly-roger{
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-100%,-50%);
+}
+.straw-hats-joly-roger > svg {
+  height: 55px;
+  width: 50px;
 }
