@@ -215,6 +215,10 @@ div.slidebar{
   align-items: center;
   column-gap: 20px;
 }
+div.slidebar > span{
+  width: 90px;
+  text-align: center;
+}
 input[type="range"] {
   position: relative;
   -webkit-appearance: none;
