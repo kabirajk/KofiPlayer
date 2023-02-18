@@ -77,12 +77,13 @@ li.sideoptions:hover{
 svg {
   height: 24px;
   width: 24px;
+}
+.sideoptions > span{
   padding-right: 5px;
 }
 h6{
   margin: 0;
   padding: 0;
-  width: 100px;
 }
 .card-wrappers > div.card{
   position: relative;
@@ -147,7 +148,7 @@ div.songAuthor{
   transform: translate(10px, 24px);
 }
 .tabs > div.tab-title{
-  transform: translate(10px, 15px);
+  transform: translate(10px, 10px);
 }
 .tabs > #Searchbar{
   width: 400px;
@@ -178,4 +179,194 @@ div.straw-hats-joly-roger{
 .straw-hats-joly-roger > svg {
   height: 55px;
   width: 50px;
+}
+div.preview{
+  position: relative;
+  height: 245px;
+  border-bottom: 1px solid rgb(33, 44, 64);
+  border-left: 1px solid rgb(33, 44, 64);
+  border-top: 1px solid rgb(33, 44, 64);
+}
+.preview > img{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+#playerControls{
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px auto 300px;
+  box-sizing: border-box;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.media-controls{
+  position: relative;
+  width: calc(100%);
+  min-width: 430px;
+}
+div.slidebar{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  align-items: center;
+  column-gap: 20px;
+}
+input[type="range"] {
+  position: relative;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  height: 3px;
+  outline: none;
+  border-radius: 2px;
+}
+input#seekBar{
+  width: 48%;
+  /* background-color: rgb(57 83 239 / 12%); */
+  min-width: 350px;
+}
+input[type="range"]::-ms-thumb {
+  box-sizing: content-box;
+  border: 1px solid #007db5;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  border: 2px solid #024769;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(33, 44, 64);
+  cursor: pointer;
+}
+
+div.play-pause-controls{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 50px;
+}
+
+button.play-pause{
+  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    border: 0;
+    background-color: transparent;
+}
+button.play-pause > span{
+  position: relative;
+    display: inherit;
+    width: inherit;
+    aspect-ratio: 1/1;
+    border-radius: inherit;
+    border: none;
+}
+button.play-pause > span.pause{
+  display: none; 
+}
+button.play-pause:active > span.pause{
+  display: block; 
+}
+button.play-pause:active > span.play{
+  display: none; 
+}
+button.play-pause > span >svg{
+  color: white;
+  background-color: #0f172a;
+  position: relative;
+    display: block;
+    width: inherit;
+    height: inherit;
+  border-radius: 100%;
+}
+button.normal{
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  aspect-ratio: 1/1;
+  margin: 0;
+  border: 0;
+  border-radius: 100%;
+  background-color: transparent;
+}
+button.normal > span{
+  display: block;
+  width: inherit;
+  aspect-ratio: inherit;
+  border: 0;
+}
+button.normal > span > svg{
+  color: white;
+  background-color: #0f172a;
+  display: block;
+  width: inherit;
+  aspect-ratio: inherit;
+  width: inherit;
+  height: inherit;
+   border-radius: 100%;
+   border: 3px solid white;
+}
+button:active > span >svg{
+  background-color: white;
+  color: black; 
+}
+button.play-pause :active>span.pause{
+  display: block;
+}
+button.normal:active > span >svg{
+  border: 3px solid black;
+}
+div.advanced-media-controls{
+  display: flex;
+}
+div.volume-control{
+  display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+div.sound-control{
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+div.mode >span.headphones{
+  display: none;
+}
+div.volume > span.Volume-x{
+display: none;
+}
+div.volume > span.Volume-0{
+  display: none;
+}
+div.volume > span.Volume-1{
+  display: none;
+}
+#playerControls >div.media-info {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+#playerControls >div.media-info >div.playlist-like {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+  padding-left: 5px;
+}
+.media-meta > h3,h6{
+  margin: 3px;
 }
