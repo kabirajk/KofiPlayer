@@ -131,6 +131,14 @@ div.tabs{
   grid-gap: 20px;
   justify-content: center;
 }
+div.card > div.lang{
+  position: absolute;
+    transform: translate(0px, 0px);
+    z-index: 2;
+    background-color: #1e293b;
+    padding: 4px;
+    border-radius: 3px;
+}
 img{
     position: relative;
     width: 150px;

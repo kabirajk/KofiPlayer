@@ -2,37 +2,53 @@ class JioSaavanApi{
     constructor(){
         this.apiDomain='https://kofiplayer-saavn.vercel.app';
         this.searchbar=$("#Searchbar");
+        this.lasturl={query:"",page:1};
     }
-    SearchAll(){
-        // https://saavn.me/search/all?query=imagine+dragons
-    }
-    searchSongs(callback,afterCall,page,limit){
+    SearchAll(callback,afterCall){
         let query=this.searchbar.val();
-        query=query.toLowerCase();
-        query=query.replace(/\s/g,"+");
-        limit= limit?limit:10
+        // query=query.toLowerCase();
+        // query=query.replace(/\s/g,"+");
+        // https://saavn.me/search/all?query=imagine+dragons
+        let url = `/search/all?query=${query}`;
+        afterCall.getDetailsFromUrl=this.getDetailsFromUrl;
+        afterCall.getData=this.getData;
+        this.getData(encodeURI(url),callback,function(resp){console.log(resp)},afterCall);
+    }
+    searchSongs(callback,afterCall,page=1,limit=40){
+        let self   =this;
+        let query=this.searchbar.val();
+        // query=query.toLowerCase();
+        // query=query.replace(/\s/g,"+");
+        if(self.lasturl.query == query){
+            self.lasturl.page+=1
+        }else{
+            self.lasturl.query=query;
+            self.lasturl.page=page
+        }
         page=page?page:1;
-        let url=this.apiDomain+`/search/songs?query=${query}&page=${page}&limit=${limit}`
-        this.getData(url,callback,function(resp){console.log(resp)},afterCall);
+        let url=`/search/songs?query=${query}&limit=${limit}&page=${page}`
+        this.getData(encodeURI(url),callback,function(resp){console.log(resp)},afterCall);
     }
     searchAlbum(callback,afterCall){
         let query=this.searchbar.val();
         query=query.toLowerCase();
         query=query.replace(/\s/g,"+");
-        let url=this.apiDomain+`/search/albums?query=${query}`
+        let url=`/search/albums?query=${query}`
         this.getData(url,callback,function(resp){console.log(resp)},afterCall);
     }
     getDetailsFromUrl(queryUrl,callback,afterCall){
-        let url=this.apiDomain
-        if(queryUrl.includes("album")){
+        let url=""
+        if(queryUrl.includes("/album/")){
             url+=`/albums?link=${queryUrl}`;
+        }else if(queryUrl.includes("/song/")){
+            url+=`/songs?link=${queryUrl}`;
         }
         this.getData(url,callback,function(resp){console.log(resp)},afterCall);
     }
     getData(url,sucessCallback,failureCallBack,afterCall){
         $.ajax(
         {
-            url:url,
+            url:'https://kofiplayer-saavn.vercel.app'+url,
             type:'GET',
             dataType:'json',
             success:function(resp){
@@ -239,8 +255,12 @@ class Kofiplayer{
         let audioPlayer = $(this.AudioPlayer);
         this.AudioPlayer.autoplay=true;
         let self=this;
-        self.Api.searchbar.on('change',function(event){
+        self.Api.searchbar.on('keydown',function(event){
+            if(event.key!="Enter") {
+                return
+            }
             let index = self.libNavBar.getSelectedValue();
+            // self.Api.SearchAll(self.populateFromAllSearch,{songCard:self.populateSongResponse,albumCard:self.populateAlbumResponse});
             if(index ==0 ){
                 self.Api.searchSongs(self.populateSongResponse);
             }else if(index ==3){
@@ -367,6 +387,9 @@ class Kofiplayer{
         songtitle.text(sourceMap.title);
         let songartist=$('<div class="songAuthor songinfo"></div>');
         songartist.text(sourceMap.artist);
+        let lang=$('<div class="lang"></div>');
+        lang.text(sourceMap.lang);
+        card.append(lang);
         card.append(imagecard);
         card.append(songtitle);
         card.append(songartist);
@@ -395,6 +418,9 @@ class Kofiplayer{
         Albumtitle.text(sourceMap.title);
         let Albumartist=$('<div class="songAuthor songinfo"></div>');
         Albumartist.text(sourceMap.artist);
+        let lang=$('<div class="lang"></div>');
+        lang.text(sourceMap.lang);
+        card.append(lang);
         card.append(imagecard);
         card.append(Albumtitle);
         card.append(Albumartist);
@@ -404,15 +430,20 @@ class Kofiplayer{
     populateSongResponse(resp,callable){
         let prosseddat=[];
         if(resp.status="SUCCESS"){
-            $.each(resp.data.results,function(index,songobject){
+            let data=resp.data.results?resp.data.results:resp.data;
+            $.each(data,function(index,songobject){
                 let song={};
                 song.title=songobject.name;
                 song.jsvnurl=songobject.url;
                 song.artist=songobject.primaryArtists;
                 song.image={};
                 song.id=songobject.id;
-                song.albumid=songobject.album.id
-                song.albumUrl=songobject.album.url;
+                if(typeof songobject.album == "object"){
+                    song.albumid=songobject.album.id;
+                    song.albumUrl=songobject.album.url;
+                }else{
+                    song.albumid=songobject.albumid;
+                }
                 song.downloadUrl={};
                 song.lang=songobject.language;
                 $.each(songobject.image,function(index,imageObj){
@@ -432,6 +463,7 @@ class Kofiplayer{
     populateAlbumResponse(resp,callable){
         let processedAlbum=[];
         if(resp.status="SUCCESS"){
+            let data=resp.data.results?resp.data.results:resp.data;
             $.each(resp.data.results,function(index,albumObj){
                 let album = {
                     albumid:albumObj.id,
@@ -469,6 +501,26 @@ class Kofiplayer{
                 }
             };
             callable(data);
+        }
+    }
+    populateFromAllSearch(resp,callableArray){
+        let processedAlbum=[];
+        if(resp.status="SUCCESS"){
+            let songs={status:"SUCCESS"};
+            let albums={status:"SUCCESS"};
+            songs.data={
+                results:resp.data.songs
+            };
+            albums.data={
+                results:resp.data.albums
+            };
+            $.each(resp.data.songs.results,function(index,object){
+                callableArray.getDetailsFromUrl(object.url,callableArray.songCard)
+            });
+            $.each(resp.data.albums.results,function(index,object){
+                callableArray.getDetailsFromUrl(object.url,callableArray.albumCard)
+            });
+
         }
     }
 }
