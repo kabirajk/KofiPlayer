@@ -1,6 +1,6 @@
 class JioSaavanApi{
     constructor(){
-        this.apiDomain='https://kofiplayer-saavn.vercel.app';
+        this.apiDomain='https://check2-git-dev-kabirajk.vercel.app';
         this.searchbar=$("#Searchbar");
         this.lasturl={query:"",page:1};
     }
@@ -47,8 +47,8 @@ class JioSaavanApi{
     }
     getData(url,sucessCallback,failureCallBack,afterCall){
         $.ajax(
-        {
-            url:'https://jiosaavn-api-privatecvc.vercel.app'+url,
+        {//always use mumbai servers are else it wil give less results
+            url:'https://kofiplayer-saavn.vercel.app'+url,
             type:'GET',
             success:function(resp){
                 if(sucessCallback){
@@ -429,7 +429,7 @@ class Kofiplayer{
     populateSongResponse(resp,callable){
         let prosseddat=[];
         if(resp.status="SUCCESS"){
-            let data=resp.data && resp.data.results?resp.data.results:resp.results;
+            let data=resp.data.results?resp.data.results:resp.data;
             $.each(data,function(index,songobject){
                 let song={};
                 song.title=songobject.name;
@@ -462,7 +462,7 @@ class Kofiplayer{
     populateAlbumResponse(resp,callable){
         let processedAlbum=[];
         if(resp.status="SUCCESS"){
-            let data=resp.data && resp.data.results?resp.data.results:resp.results;
+            let data=resp.data.results?resp.data.results:resp.data;
             $.each(resp.data.results,function(index,albumObj){
                 let album = {
                     albumid:albumObj.id,
