@@ -208,6 +208,9 @@ class Kofiplayer{
     seekNextAudio(){
         let self=this;
         let nextCard= $(self.selectedSongCard).next();
+        while(!nextCard.hasClass('song') && nextCard.length){
+            nextCard= $(nextCard).next();
+        }
         if(nextCard.length){
            self.playSongFromCard(nextCard);
         }
@@ -215,6 +218,9 @@ class Kofiplayer{
     seekPrevAudio(){
         let self=this;
         let previousCard= $(self.selectedSongCard).prev();
+        while(!previousCard.hasClass('song') && previousCard.length){
+            previousCard= $(previousCard).next();
+        }
         if(previousCard.length){
             self.playSongFromCard(previousCard);
         }
@@ -299,9 +305,9 @@ class Kofiplayer{
         });
         self.Volumeslider.on('input',function(event){
             self.AudioPlayer.volume=(self.Volumeslider.val()/100);
-            self.volumeIcons.removeClass(self.volume);
+            !self.AudioPlayer.muted?self.volumeIcons.removeClass(self.volume):undefined;
             self.volume=self.getVolumeclass(self.Volumeslider.val());
-            self.volumeIcons.addClass(self.volume);
+            !self.AudioPlayer.muted?self.volumeIcons.addClass(self.volume):undefined;
         });
         self.volumeIcons.on('click',function(){
             if(self.AudioPlayer.muted==false){
