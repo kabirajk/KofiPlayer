@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Music</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -50,7 +51,7 @@
               </svg></span>Stream</li>
         </ul>
       </div>
-      <div class="Library">
+      <div class="Library" style="display:none">
         <h4 class="title">Library</h4>
         <ul class="">
           <li class="sideoptions"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -85,14 +86,52 @@
         </ul>
       </div>
       <div class="preview">
-        <img
-        loading="lazy"
-          src="valentin.jpg"
-          alt="" srcset="">
+        <img loading="lazy" src="valentin.jpg" alt="" srcset="">
       </div>
     </div>
     <div class="main">
       <div class="tabs ">
+        <div class="navbarswicth">
+          <div class="LibNav">
+            <ul class="ui-navigation-bar-parent">
+              <li class="ui-navigation-bar-child song selected"><span><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="8" cy="18" r="4"></circle>
+                    <path d="M12 18V2l7 4"></path>
+                  </svg></span>Songs</li>
+              <li class="ui-navigation-bar-child playlist"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M21 15V6"></path>
+                    <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+                    <path d="M12 12H3"></path>
+                    <path d="M16 6H3"></path>
+                    <path d="M12 18H3"></path>
+                  </svg></span>Playlist</li>
+              <li class="ui-navigation-bar-child artist"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"></path>
+                    <circle cx="17" cy="7" r="5"></circle>
+                  </svg></span>Artist</li>
+              <li class="ui-navigation-bar-child album"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="m16 6 4 14"></path>
+                    <path d="M12 6v14"></path>
+                    <path d="M8 8v12"></path>
+                    <path d="M4 4v16"></path>
+                  </svg></span>Album</li>
+            </ul>
+          </div>
+          <div class="tab-title" style="display:none"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg></span>Listen Now</div>
+        </div>
+        <input type="text" name="Search Song" id="Searchbar" placeholder="Search Song">
         <div class="straw-hats-joly-roger">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 84 84"
             version="1.1">
@@ -178,13 +217,8 @@
             </g>
           </svg>
         </div>
-        <input type="text" name="Search Song" id="Searchbar" placeholder="Search Song">
-        <div class="tab-title"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polygon points="10 8 16 12 10 16 10 8"></polygon>
-            </svg></span>Listen Now</div>
       </div>
+
       <div class="content">
         <div class="musicgrid">
           <div id="MusicCardWrapper" class="card-wrappers">
@@ -244,11 +278,37 @@
           </div>
           <div class="playlist-like">
             <span class="like">
-              <svg class="add-like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path></svg>
-              <svg  style="display: none"  class="remove-like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.12 4.107a5.4 5.4 0 0 0-.538.473C1.46 6.7 1.33 10.28 4 13l8 8 4.5-4.5"></path><path d="M19.328 13.672 20 13c2.67-2.72 2.54-6.3.42-8.42a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-2.386-1.393"></path><line x1="2" y1="2" x2="22" y2="22"></line></svg></span>
+              <svg class="add-like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z">
+                </path>
+              </svg>
+              <svg style="display: none" class="remove-like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.12 4.107a5.4 5.4 0 0 0-.538.473C1.46 6.7 1.33 10.28 4 13l8 8 4.5-4.5"></path>
+                <path
+                  d="M19.328 13.672 20 13c2.67-2.72 2.54-6.3.42-8.42a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-2.386-1.393">
+                </path>
+                <line x1="2" y1="2" x2="22" y2="22"></line>
+              </svg></span>
             <span class="playlist">
-              <svg  class="add-to-playlist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12H3"></path><path d="M16 6H3"></path><path d="M16 18H3"></path><path d="M18 9v6"></path><path d="M21 12h-6"></path></svg>
-              <svg  style="display: none" class="remove-from-playlist" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12H3"></path><path d="M16 6H3"></path><path d="M16 18H3"></path><path d="M21 12h-6"></path></svg>
+              <svg class="add-to-playlist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 12H3"></path>
+                <path d="M16 6H3"></path>
+                <path d="M16 18H3"></path>
+                <path d="M18 9v6"></path>
+                <path d="M21 12h-6"></path>
+              </svg>
+              <svg style="display: none" class="remove-from-playlist" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M11 12H3"></path>
+                <path d="M16 6H3"></path>
+                <path d="M16 18H3"></path>
+                <path d="M21 12h-6"></path>
+              </svg>
             </span>
           </div>
         </div>
@@ -265,9 +325,9 @@
                   fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polygon points="10 8 16 12 10 16 10 8"></polygon>
-                </svg></span><span class="pause" ><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
+                </svg></span><span class="pause"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="10" y1="15" x2="10" y2="9"></line>
                   <line x1="14" y1="15" x2="14" y2="9"></line>
@@ -287,17 +347,51 @@
         </div>
         <div class="advanced-media-controls">
           <div class="sound-control">
-            <span class="queue"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12H3"></path><path d="M16 6H3"></path><path d="M12 18H3"></path><path d="m16 12 5 3-5 3v-6Z"></path></svg></span>
+            <span class="queue"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 12H3"></path>
+                <path d="M16 6H3"></path>
+                <path d="M12 18H3"></path>
+                <path d="m16 12 5 3-5 3v-6Z"></path>
+              </svg></span>
             <div class="mode">
-              <span class="speaker"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg></span>
-              <span class="headphones"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></span>
+              <span class="speaker"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                  <circle cx="12" cy="14" r="4"></circle>
+                  <line x1="12" y1="6" x2="12.01" y2="6"></line>
+                </svg></span>
+              <span class="headphones"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                  <path
+                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                  </path>
+                </svg></span>
             </div>
             <div class="volume-control">
-              <div class="volume">
-                <span class="Volume-x"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="22" y1="9" x2="16" y2="15"></line><line x1="16" y1="9" x2="22" y2="15"></line></svg></span>
-                <span class="Volume-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon></svg></span>
-                <span class="Volume-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></span>
-                <span class="Volume-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg></span>
+              <div class="volume v2">
+                <span class="Volume-x"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="22" y1="9" x2="16" y2="15"></line>
+                    <line x1="16" y1="9" x2="22" y2="15"></line>
+                  </svg></span>
+                <span class="Volume-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  </svg></span>
+                <span class="Volume-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  </svg></span>
+                <span class="Volume-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  </svg></span>
               </div>
               <input type="range" value=100 name="volume-slider" id="Volume">
             </div>
