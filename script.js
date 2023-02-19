@@ -48,7 +48,7 @@ class JioSaavanApi{
     getData(url,sucessCallback,failureCallBack,afterCall){
         $.ajax(
         {
-            url:'https://kofiplayer-saavn.vercel.app'+url,
+            url:'https://jiosaavn-api-kofiplayer.vercel.app'+url,
             type:'GET',
             dataType:'json',
             success:function(resp){
