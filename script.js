@@ -48,9 +48,8 @@ class JioSaavanApi{
     getData(url,sucessCallback,failureCallBack,afterCall){
         $.ajax(
         {
-            url:'https://jiosaavn-api-kofiplayer.vercel.app'+url,
+            url:'https://jiosaavn-api-privatecvc.vercel.app'+url,
             type:'GET',
-            dataType:'json',
             success:function(resp){
                 if(sucessCallback){
                     sucessCallback(resp,afterCall);
@@ -430,7 +429,7 @@ class Kofiplayer{
     populateSongResponse(resp,callable){
         let prosseddat=[];
         if(resp.status="SUCCESS"){
-            let data=resp.data.results?resp.data.results:resp.data;
+            let data=resp.data && resp.data.results?resp.data.results:resp.results;
             $.each(data,function(index,songobject){
                 let song={};
                 song.title=songobject.name;
@@ -463,7 +462,7 @@ class Kofiplayer{
     populateAlbumResponse(resp,callable){
         let processedAlbum=[];
         if(resp.status="SUCCESS"){
-            let data=resp.data.results?resp.data.results:resp.data;
+            let data=resp.data && resp.data.results?resp.data.results:resp.results;
             $.each(resp.data.results,function(index,albumObj){
                 let album = {
                     albumid:albumObj.id,
