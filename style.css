@@ -6,6 +6,7 @@ html{
   margin: 0px;
   padding: 0px;
   height: 100vh;
+  width: 100vh;
   user-select: none;
 }
 body{
@@ -26,16 +27,21 @@ body{
   min-width: 100%;
   min-height: 100%;
   grid-template-areas: "side hero";
-  grid-template-columns: 250px auto;
+  grid-template-columns: min(17%,251px) auto;
   
 }
 .sidepanel{
   grid-area: side;
-  background:  #0f172a;
+  background: #0f172a;
   border-right: 1px solid rgb(33, 44, 64);
   height: 100vh;
-    display: grid;
-    grid-template-rows: 70px auto 250px;
+  display: grid;
+  grid-template-rows: 70px auto auto;
+  align-items: end;
+  position: relative;
+  width: 100%;
+  min-width: 180px;
+  max-width: 250px;
 }
 .main{
   grid-area: hero;
@@ -52,7 +58,8 @@ body{
   padding: 20px;
 }
 .discover{
-  height: 180px;
+  position: relative;
+  height: 100%;
   box-sizing: border-box;
 }
 h4.title {
@@ -68,10 +75,12 @@ li.sideoptions{
   margin-left: 10px;
   display: flex;
   align-items: center;
-  max-width: 200px;
+  min-width: 136px;
   padding: 6px;
   padding-left: 10px;
   border-radius: 5px;
+  position: relative;
+  width: 79%;
 }
 li.sideoptions:hover{
   background-color:#1e293b;
@@ -244,26 +253,29 @@ ul.ui-navigation-bar-parent > li.ui-navigation-bar-child.selected{
 }
 div.preview{
   position: relative;
-  height: 245px;
+  width: 100%;
+  aspect-ratio: 1;
   border-bottom: 1px solid rgb(33, 44, 64);
-  border-left: 1px solid rgb(33, 44, 64);
   border-top: 1px solid rgb(33, 44, 64);
 }
 .preview > img{
   position: relative;
-  height: 100%;
   width: 100%;
   object-fit: cover;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1;
 }
 #playerControls{
   position: relative;
   display: grid;
-  grid-template-columns: 300px auto 300px;
+  grid-template-columns:  minmax(150px,300px) auto 300px;
   box-sizing: border-box;
   padding-top: 5px;
   padding-left: 10px;
   padding-right: 10px;
+}
+#playerControls > div >div.media-meta{
+  min-width: 150px;
+  max-width: 300px;
 }
 .media-controls{
   position: relative;
@@ -458,8 +470,7 @@ div.volume.vx > span.Volume-x{
 #playerControls >div.media-info >div.playlist-like {
   display: flex;
   align-items: center;
-  column-gap: 25px;
-  padding-left: 5px;
+  column-gap: 20fpx;
 }
 .media-meta > h3,h6{
   margin: 3px;
