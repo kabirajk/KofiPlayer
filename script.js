@@ -21,7 +21,7 @@ class JioSaavanApi{
         // query=query.replace(/\s/g,"+");
         if(self.lasturl.query == query){
             self.lasturl.page+=1;
-            l=self.lasturl.page;
+            page=self.lasturl.page;
         }else{
             self.lasturl.query=query;
             self.lasturl.page=page
