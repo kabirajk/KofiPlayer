@@ -446,7 +446,11 @@ class Kofiplayer{
                 song.downloadUrl={};
                 song.lang=songobject.language;
                 $.each(songobject.image,function(index,imageObj){
-                    song.image[imageObj.quality]=imageObj.link;
+                    if(imageObj.link.startsWith('https')){
+                        song.image[imageObj.quality]=imageObj.link;
+                    }else{
+                        song.image[imageObj.quality] = "https"+imageObj.link.slice(4)
+                    }
                 });
                 $.each(songobject.downloadUrl,function(index,sdlObj){
                     song.downloadUrl[sdlObj.quality]=sdlObj.link;
