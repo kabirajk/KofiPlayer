@@ -213,7 +213,17 @@ class Kofiplayer{
             }).catch((err)=>{
                 console.log(err)
             });
-            self.coverArt.attr('src',$("img",card).attr('src'));
+            let imgsrc="";
+            if(source.image['500x500']){
+                imgsrc=source.image['500x500'];
+            }
+            else if(source.image['150x150']){
+                imgsrc=source.image['150x150'];
+            }
+            else if(source.image['50x50']){
+                imgsrc=source.image['50x50'];
+            }
+            self.coverArt.attr('src',imgsrc);
             self.songTitle.text(source.title);
             self.songartist.text(source.artist);
         }
