@@ -21,7 +21,7 @@ the Api used in this Belongs to [@sumitkolhe](https://github.com/sumitkolhe/jios
 
 ## FAQ
 
-#### Its trash why are you building it? 
+#### Its already music player are flooded why are you building it? 
 
 I'm new to development so far. Learning and Applying is best suited to me for learn thing that is why i'm doing like this
 
