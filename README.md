@@ -2,7 +2,7 @@
 # [KofiPlayer](https://kofiplayer.vercel.app/)
 
 The KofiPlayer is built for purpose to learn css grid layout 
-the Api used in this Belongs to [@sumitkolhe](hhttps://github.com/sumitkolhe/jiosaavn-api) This just for educational purpose not to missusing the the api songs are not hosted by me in any servers
+the Api used in this Belongs to [@sumitkolhe](https://github.com/sumitkolhe/jiosaavn-api) This just for educational purpose not to missusing the the api songs are not hosted by me in any servers
 
 ## Homepage
 
@@ -11,7 +11,7 @@ the Api used in this Belongs to [@sumitkolhe](hhttps://github.com/sumitkolhe/jio
 
 ## Acknowledgements
 
- - [@sumitkolhe/jiosaavn-api](hhttps://github.com/sumitkolhe/jiosaavn-api)
+ - [@sumitkolhe/jiosaavn-api](https://github.com/sumitkolhe/jiosaavn-api)
 
 
 ## Author
