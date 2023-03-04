@@ -368,7 +368,7 @@ class Kofiplayer{
         let card=$('<div class="card song"></div>');
         card.attr('songid',sourceMap.id);
         let imagecard=$('<div class="imagecard"></div>');
-        let image=$('<img>');
+        // let image=$('<img>');
         let imgsrc="";
         if(sourceMap.image['500x500']){
             imgsrc=sourceMap.image['500x500'];
@@ -380,8 +380,9 @@ class Kofiplayer{
             imgsrc=sourceMap.image['50x50'];
         }
 
-        image.attr('src',imgsrc);
-        imagecard.append(image);
+        // image.attr('src',imgsrc);
+        // imagecard.append(image);
+        imagecard.css('background-image','url('+imgsrc+')')
         let songtitle=$('<div class="songtitle songinfo"></div>');
         songtitle.text(sourceMap.title);
         let songartist=$('<div class="songAuthor songinfo"></div>');

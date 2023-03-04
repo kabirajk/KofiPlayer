@@ -82,6 +82,12 @@ li.sideoptions{
   position: relative;
   width: 79%;
 }
+li.sideoptions.current {
+  border: 2px solid #8391a6;
+}
+li.sideoptions:active{
+  scale:0.98;
+}
 li.sideoptions:hover{
   background-color:#1e293b;
 
@@ -105,6 +111,7 @@ h6{
   padding: 10px;
   border-radius: 3px;
   background: rgb(57 83 239 / 12%);
+  transition: background-color 400ms ease;
 }
 .card-wrappers > div.card:hover{
   background-color: rgb(2, 1, 1);
@@ -154,8 +161,19 @@ img{
     aspect-ratio: 1/1;
     object-fit: cover;
 }
-.imagecard > img{
-  border-radius: 5px;
+div.imagecard{
+  position: relative;
+  width: 150px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  margin: 0px 0px 5px 0px;
+  border-radius: 2px;
+  background-size: 100%;
+  background-position: center;
+  transition: background-size 400ms ease, opacity 400ms ease;
+}
+div.imagecard:hover {
+  background-size: 105%;
 }
 div.songinfo{
   max-width: 150px;
@@ -239,9 +257,11 @@ ul.ui-navigation-bar-parent > li.ui-navigation-bar-child{
   align-items: center;
   column-gap: 5px;
   padding: 5px 10px 5px 10px;
+  transition: background-color 400ms ease;
 }
 ul.ui-navigation-bar-parent > li.ui-navigation-bar-child >span{
   height: 24px;
+  transition: background-color 400ms ease;
 }
 ul.ui-navigation-bar-parent > li.ui-navigation-bar-child:hover{
   color: black;
