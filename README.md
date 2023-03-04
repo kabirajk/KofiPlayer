@@ -23,7 +23,7 @@ the Api used in this Belongs to [@sumitkolhe](https://github.com/sumitkolhe/jios
 
 #### Its trash why are you building it? 
 
-I'm new to development so far practicing and learning i'm doing like this
+I'm new to development so far. Learning and Applying is best suited to me for learn thing that is why i'm doing like this
 
 #### I Hosted the same api in vercel or others But im getting less response ?
 
