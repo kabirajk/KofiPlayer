@@ -107,7 +107,7 @@ h6{
 .card-wrappers > div.card{
   position: relative;
   width: 150px;
-  aspect-ratio: 1/1;
+  height: 190px;
   padding: 10px;
   border-radius: 3px;
   background: rgb(57 83 239 / 12%);
