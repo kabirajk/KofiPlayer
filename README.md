@@ -11,7 +11,7 @@ the Api used in this Belongs to [@sumitkolhe](hhttps://github.com/sumitkolhe/jio
 
 ## Author
 
-- [@Kabiraj](https://www.github.com/kabirajk) -> Front-End
+- [@Kabiraj](https://www.github.com/kabirajk)
 
 
 ## FAQ
