@@ -14,13 +14,14 @@ class JioSaavanApi{
         afterCall.getData=this.getData;
         this.getData(encodeURI(url),callback,function(resp){console.log(resp)},afterCall);
     }
-    searchSongs(callback,afterCall,page=1,limit=40){
+    searchSongs(callback,afterCall,page=1,limit=20){
         let self   =this;
         let query=this.searchbar.val();
         // query=query.toLowerCase();
         // query=query.replace(/\s/g,"+");
         if(self.lasturl.query == query){
-            self.lasturl.page+=1
+            self.lasturl.page+=1;
+            page=self.lasturl.page;
         }else{
             self.lasturl.query=query;
             self.lasturl.page=page
@@ -447,7 +448,11 @@ class Kofiplayer{
                 song.downloadUrl={};
                 song.lang=songobject.language;
                 $.each(songobject.image,function(index,imageObj){
-                    song.image[imageObj.quality]=imageObj.link;
+                    if(imageObj.link.startsWith('https')){
+                        song.image[imageObj.quality]=imageObj.link;
+                    }else{
+                        song.image[imageObj.quality] = "https"+imageObj.link.slice(4)
+                    }
                 });
                 $.each(songobject.downloadUrl,function(index,sdlObj){
                     song.downloadUrl[sdlObj.quality]=sdlObj.link;
