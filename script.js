@@ -1,6 +1,6 @@
 class JioSaavanApi{
     constructor(){
-        this.apiDomain='https://check2-git-dev-kabirajk.vercel.app';
+        this.apiDomain='https://jiosaavn-api-kofiplayer.vercel.app';
         this.searchbar=$("#Searchbar");
         this.lasturl={query:"",page:1};
     }
