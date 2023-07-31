@@ -49,7 +49,7 @@ class JioSaavanApi{
     getData(url,sucessCallback,failureCallBack,afterCall){
         $.ajax(
         {//always use mumbai servers are else it wil give less results
-            url:'https://kofiplayer-saavn.vercel.app'+url,
+            url:'https://jiosaavn-api-kofiplayer.vercel.app'+url,
             type:'GET',
             success:function(resp){
                 if(sucessCallback){
